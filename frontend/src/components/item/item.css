@@ -1,0 +1,24 @@
+.item {
+  height: 90px;
+  width: 90px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+
+.owned {
+  border-radius: 0 0 5px 5px;
+  background-color: rgba(0, 193, 54, 0.7);
+  width: 90px;
+  height: 24px;
+  margin-top: 66px;
+}
+
+.not-owned {
+  border-radius: 0 0 5px 5px;
+  background-color: rgba(223, 0, 0, 0.7);
+  width: 90px;
+  height: 24px;
+  margin-top: 66px;
+}
