@@ -9,7 +9,7 @@
 
 .owned {
   border-radius: 0 0 5px 5px;
-  background-color: rgba(0, 193, 54, 0.7);
+  background-color: rgba(0, 193, 54, 0.6);
   width: 90px;
   height: 24px;
   margin-top: 66px;
@@ -17,8 +17,76 @@
 
 .not-owned {
   border-radius: 0 0 5px 5px;
-  background-color: rgba(223, 0, 0, 0.7);
+  background-color: rgba(223, 0, 0, 0.6);
   width: 90px;
   height: 24px;
   margin-top: 66px;
+}
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+  }
+}
+
+.popup-content {
+  -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
+
+.modal {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(9, 11, 13, 0.04);
+  width: 320px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  margin: auto;
+}
+
+.red-button {
+  cursor: pointer;
+  background-color: #ff0476;
+  height: 40px;
+  width: 70px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.green-button {
+  cursor: pointer;
+  background-color: #01ca71;
+  height: 40px;
+  width: 70px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

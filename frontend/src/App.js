@@ -11,7 +11,10 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/" style={{ fontWeight: "bold", color: "black" }}>
+              <Link
+                to="/"
+                style={{ fontWeight: "bold", color: "black", marginLeft: 10 }}
+              >
                 Website Name
               </Link>
             </li>
