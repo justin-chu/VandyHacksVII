@@ -120,11 +120,26 @@ export function getTasks() {
 	};
 	return axios(config)
 		.then((data) => {
-			return data.data;
+			let cleanerData = filterData(data);
+			return cleanerData;
 		})
 		.catch((e) => {
 			return null;
 		});
+}
+
+export function filterData(data) {
+	let stringData = JSON.stringify(data.data);
+	let slicedData = stringData.slice(2, parseInt(stringData.length) - 3);
+	let replacedData = slicedData.replace('"', "");
+	let splitData = replacedData.split(',"');
+
+	let newArray = [];
+	splitData.forEach((data) => {
+		newArray.push(String(data));
+	});
+	console.log(newArray);
+	return newArray;
 }
 
 export function isLoggedIn() {

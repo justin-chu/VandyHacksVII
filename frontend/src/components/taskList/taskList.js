@@ -16,24 +16,26 @@ const TaskList = () => {
 		updateBalance(localStorage.getItem("username"), 50);
 	}
 
+	function getArrayfromString(String) {}
+
 	useEffect(() => {
 		async function fetchData() {
 			const taskData = await getTasks();
-			setTasks(tasks.push(taskData));
-			console.log(tasks);
+			console.log(taskData);
+			setTasks(taskData);
 		}
 		fetchData();
 	}, []);
 
 	return (
-		<Zoom>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Keep __ dollars more in your savings account"
-					backgroundColor="#706BFF"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
+		<div>
+			{tasks.map((task) => (
+				<a onClick={() => setOpen((o) => !o)}>
+					<Task task={task} backgroundColor="#706BFF" />
+				</a>
+			))}
+			{/* 
+				<a onClick={() => setOpen((o) => !o)}>
 				<Task
 					task="Use credit card for ___ more purchases instead of checking"
 					backgroundColor="#FFBA08"
@@ -86,7 +88,7 @@ const TaskList = () => {
 					task="Keep __ dollars more in your savings account"
 					backgroundColor="#1877F2"
 				/>
-			</a>
+			</a> */}
 			<Popup open={open} closeOnDocumentClick onClose={closeModal}>
 				<div className="modal">
 					<p>Are you sure you have completed this task?</p>
@@ -100,7 +102,7 @@ const TaskList = () => {
 					</div>
 				</div>
 			</Popup>
-		</Zoom>
+		</div>
 		// <div>
 		// 	<h1>Tasklist works!</h1>
 		// </div>
