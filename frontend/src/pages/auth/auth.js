@@ -9,6 +9,9 @@ export default function Finances() {
 	const [password, setPassword] = useState("");
 	const history = useHistory();
 
+	function refreshPage() {
+		window.location.reload();
+	}
 	useEffect(() => {
 		localStorage.clear();
 	});
@@ -49,6 +52,7 @@ export default function Finances() {
 
 							if (user) {
 								history.push("/dashboard");
+								refreshPage();
 							} else {
 								alert("wrong credentials");
 							}
