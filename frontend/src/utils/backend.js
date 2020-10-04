@@ -60,6 +60,24 @@ export const postLogin = async (userName, password) => {
 		});
 };
 
+export const postSignup = async (customer) => {
+	const config = {
+		method: "post",
+		url: `${baseUrl}/customers`,
+		data: customer,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	};
+	return axios(config)
+		.then((data) => {
+			return data;
+		})
+		.catch((e) => {
+			return null;
+		});
+};
+
 function setLocalStorage(customer) {
 	localStorage.setItem("id", customer.id);
 	localStorage.setItem("email", customer.email);
