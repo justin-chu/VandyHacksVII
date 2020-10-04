@@ -4,6 +4,8 @@ import Coin from "../../images/coin.gif";
 import Avatar from "../../images/avatar.png";
 import Item from "../../components/item/item";
 import { getCustomerInfo, updateBalance } from "../../utils/backend";
+import Zoom from "react-reveal/Zoom";
+import { useMediaQuery } from "react-responsive"
 import TaskList from "../../components/taskList/taskList";
 
 export default function Dashboard() {
@@ -193,4 +195,5 @@ export default function Dashboard() {
 			</div>
 		</div>
 	);
+
 }

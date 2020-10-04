@@ -2,6 +2,13 @@ body {
   background-color: #f7f9fa;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
