@@ -10,6 +10,9 @@ export default function Finances() {
   const [password, setPassword] = useState("");
   const history = useHistory();
 
+  function refreshPage() {
+    window.location.reload();
+  }
   useEffect(() => {
     localStorage.clear();
   });
