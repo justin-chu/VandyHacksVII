@@ -52,5 +52,5 @@ export function getCustomerInfo() {
 }
 
 export function isLoggedIn() {
-	return getCustomerInfo() == null;
+	return localStorage.getItem("id") != null;
 }
