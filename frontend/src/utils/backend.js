@@ -5,6 +5,9 @@ export const urlLogin = `${baseUrl}customer/`;
 export const taskUrl =
 	"https://cors-anywhere.herokuapp.com/https://17s5u775q5.execute-api.us-east-2.amazonaws.com/default/vandyHacks";
 
+export const transactionUrl =
+	"https://cors-anywhere.herokuapp.com/http://api.reimaginebanking.com/accounts/5f78b531f1bac107157e192e/purchases?key=7bdccafff961f37e0847de674d6f88be";
+
 export const updateBalance = async (userName, amount) => {
 	const config = {
 		method: "put",
@@ -113,15 +116,14 @@ export function getCustomerInfo() {
 export function getTransactions() {
 	const config = {
 		method: "get",
-		url: `http://api.reimaginebanking.com/accounts/5f78b531f1bac107157e192e/purchases?key=7bdccafff961f37e0847de674d6f88be`,
+		url: transactionUrl,
 		headers: {
 			"Content-Type": "application/json",
 		},
 	};
 	return axios(config)
 		.then((data) => {
-			console.log(data[0]);
-			return data;
+			return data.data;
 		})
 		.catch((e) => {
 			return e;

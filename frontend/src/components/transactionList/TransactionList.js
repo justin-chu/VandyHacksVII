@@ -1,40 +1,43 @@
 import React, { useEffect, useState } from "react";
 import Zoom from "react-reveal/Zoom";
-import Task from "../../components/task/task";
-import { getTasks, updateBalance } from "../../utils/backend";
+import Task from "../task/task";
+import { getTransactions, updateBalance } from "../../utils/backend";
 import { Popup } from "reactjs-popup";
+import Transaction from "../transaction/transaction";
 
-const TaskList = () => {
+const TransactionList = () => {
 	const [open, setOpen] = useState(false);
 	const closeModal = () => setOpen(false);
-	const [tasks, setTasks] = useState([]);
-	let taskList;
-
+	const [transactions, setTransactions] = useState([]);
+	let stuff;
 	function completeTask() {
 		closeModal();
-		console.log(localStorage.getItem("username"));
 		updateBalance(localStorage.getItem("username"), 50);
 	}
 
 	useEffect(() => {
 		async function fetchData() {
-			const taskData = await getTasks();
-			console.log(taskData);
-			setTasks(taskData);
+			const transactionData = await getTransactions();
+
+			setTransactions((transactions) => [
+				...transactions,
+				transactionData,
+			]);
+			console.log(transactions);
 		}
+
 		fetchData();
-	}, []);
+	}, [transactions]);
+	console.log(transactions);
 
 	return (
 		<div>
-			{/* <Zoom> */}
-			{/* #FFBA08 #34A853 #EC64DE #1877F2 #706BFF */}
-			{tasks.map((task) => (
-				<a onClick={() => setOpen((o) => !o)}>
-					<Task task={task} backgroundColor="#706BFF" />
-				</a>
-			))}
-			{/* </Zoom> */}
+			<div>
+				{/* #FFBA08 #34A853 #EC64DE #1877F2 #706BFF */}
+				{/* {transactions.map((transaction) => (
+					<h2>transaction.id</h2>
+				))} */}
+			</div>
 			<Popup open={open} closeOnDocumentClick onClose={closeModal}>
 				<div className="modal">
 					<p>Are you sure you have completed this task?</p>
@@ -55,4 +58,4 @@ const TaskList = () => {
 	);
 };
 
-export default TaskList;
+export default TransactionList;
