@@ -1,10 +1,10 @@
-.task {
+.transaction {
   height: 45px;
   width: 500px;
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: white;
+  color: black;
   display: flex;
   justify-content: space-between;
 }
