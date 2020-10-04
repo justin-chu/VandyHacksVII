@@ -9,20 +9,22 @@ export default function Transaction(props) {
           cursor: "pointer",
           backgroundColor: "#e9ecef",
         }}
-        className="task"
+        className="transaction"
       >
-        <h4
+        <p
           style={{
             marginTop: 12,
             marginLeft: 15,
             fontSize: 15,
             color: "black",
+            display: "grid",
+            gridTemplateColumns: "100px 320px 100px",
           }}
         >
-          {props.amount}
-          {props.date}
-          {props.description}
-        </h4>
+          <span style={{ fontWeight: "bold" }}>{props.date}</span>
+          <span>{props.description}</span>
+          <span style={{ fontStyle: "italic" }}>${props.amount}</span>
+        </p>
       </a>
     </div>
   );

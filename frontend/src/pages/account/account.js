@@ -4,43 +4,45 @@ import Transaction from "../../components/transaction/transaction";
 import Avatar from "../../images/avatar.png";
 import { getCustomerInfo, getTransactions } from "../../utils/backend";
 import axios from "axios";
+import TransactionList from "../../components/transactionList/TransactionList";
 
 export default function Finances() {
-  const [deposit, setDeposit] = React.useState(true);
-  const [amount, setAmount] = React.useState(0);
-  const [desc, setDesc] = React.useState("");
-  const customer = getCustomerInfo();
-  const getTransactions = async () => {
-    // // let transactions = await getTransactions();
-    // let content = [];
-    // // console.log(transactions);
-    // for (let i = 0; i < 15; i++) {
-    //   content.push(<Transaction />);
-    // }
-    // return content;
-  };
+	const [deposit, setDeposit] = React.useState(true);
+	const [amount, setAmount] = React.useState(0);
+	const [desc, setDesc] = React.useState("");
+	const customer = getCustomerInfo();
+	const getTransactions = async () => {
+		// // let transactions = await getTransactions();
+		// let content = [];
+		// // console.log(transactions);
+		// for (let i = 0; i < 15; i++) {
+		//   content.push(<Transaction />);
+		// }
+		// return content;
+	};
 
-  const postDeposit = () => {
-    axios
-      .post(
-        "http://api.reimaginebanking.com/accounts/5f78b531f1bac107157e192e/deposits?key=7bdccafff961f37e0847de674d6f88be",
-        {
-          amount: amount,
-          medium: "balance",
-          transaction_date: "2020-10-04",
-          status: "pending",
-          description: desc,
-        }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+	const postDeposit = () => {
+		axios
+			.post(
+				"http://api.reimaginebanking.com/accounts/5f78b531f1bac107157e192e/deposits?key=7bdccafff961f37e0847de674d6f88be",
+				{
+					amount: amount,
+					medium: "balance",
+					transaction_date: "2020-10-04",
+					status: "pending",
+					description: desc,
+				}
+			)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
-  const postWithdrawal = () => {};
+	const postWithdrawal = () => {};
+
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>

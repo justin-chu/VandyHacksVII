@@ -4,6 +4,7 @@ import { getTasks, updateBalance } from "../../utils/backend";
 import { Popup } from "reactjs-popup";
 
 const TaskList = () => {
+
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
   const [tasks, setTasks] = useState([]);
@@ -12,9 +13,7 @@ const TaskList = () => {
     closeModal();
     updateBalance(localStorage.getItem("username"), 50);
   }
-
-  function getArrayfromString(String) {}
-
+  
   useEffect(() => {
     async function fetchData() {
       const taskData = await getTasks();
