@@ -5,7 +5,7 @@
 }
 
 .form {
-  height: 200px;
+  height: 220px;
   width: 400px;
   padding: 25px;
   display: flex;
@@ -17,41 +17,37 @@
   box-shadow: 0 0px 10px rgba(9, 11, 13, 0.04);
 }
 
-textarea {
-  height: 36px;
+.input {
+  height: 80px;
   width: 360px;
-  resize: none;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #eaeaea;
   overflow: hidden;
   font-size: 14px;
   font-family: sans-serif;
-  line-height: 36px;
   padding-left: 10px;
+  padding: 17px;
   margin-bottom: 10px;
 }
 
-textarea:focus {
+.input:focus {
   outline: none;
-  border: none;
-  box-shadow: 0 0px 10px rgba(9, 11, 13, 0.04);
+  border: 1px solid #01ca71;
 }
 
-textarea:hover {
+.input:hover {
   outline: none;
-  border: none;
-  box-shadow: 0 0px 10px rgba(9, 11, 13, 0.04);
-  transition: box-shadow 0.2s linear;
+  border: 1px solid #01ca71;
+  transition: border 0.2s linear;
 }
 
-.button {
+.submit-button {
   cursor: pointer;
   background-color: #01ca71;
-  height: 40px;
-  width: 70px;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  font-weight: bold;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
+  border: none;
+  margin-top: 10px;
 }

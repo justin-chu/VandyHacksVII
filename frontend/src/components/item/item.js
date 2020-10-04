@@ -47,16 +47,20 @@ export default function Item(props) {
             />
           </div>
           <div style={{ marginTop: -10 }}>
-            <p>
-              Purchase this item for 232
-              <img
-                style={{ marginLeft: 2, marginTop: 5 }}
-                src={Coin}
-                height={18}
-                width={18}
-              />
-              {"  "}?
-            </p>
+            {props.owned ? (
+              <p>Equip this item?</p>
+            ) : (
+              <p>
+                Purchase this item for 232
+                <img
+                  style={{ marginLeft: 2, marginTop: 5 }}
+                  src={Coin}
+                  height={18}
+                  width={18}
+                />
+                {"  "}?
+              </p>
+            )}
           </div>
           <div className="buttons">
             <a className="red-button" onClick={closeModal}>
