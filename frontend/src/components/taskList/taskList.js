@@ -27,11 +27,14 @@ const TaskList = () => {
 			const parsedTasks = JSON.parse(
 				localStorage.getItem("completedTasks")
 			);
-			const unfinishedTaskData = [];
+			let unfinishedTaskData = [];
 			for (let task of taskData) {
-				console.log(parsedTasks.includes(task), task);
-				if (!parsedTasks.includes(task.slice(0, task.length - 1))) {
-					unfinishedTaskData.push(task);
+				if (parsedTasks != null) {
+					if (!parsedTasks.includes(task.slice(0, task.length - 1))) {
+						unfinishedTaskData.push(task);
+					}
+				} else {
+					unfinishedTaskData = taskData;
 				}
 			}
 			console.log(parsedTasks);
