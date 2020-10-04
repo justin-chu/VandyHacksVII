@@ -94,34 +94,53 @@ export default function Item(props) {
 							className="green-button"
 							onClick={() => {
 								if (status == 1) {
-									// updateBalance(
-									// 	localStorage.getItem("username"),
-									// 	-232
-									// );
-
 									setStatus(0);
 								} else if (status == 2) {
 									setStatus(0);
 								} else if (status == 0) {
+									updateBalance(
+										localStorage.getItem("username"),
+										-232
+									);
 									if (props.category == "head") {
-										props.changeHead(
+										localStorage.setItem(
+											"head",
 											require(`../../images/${props.image}.png`)
+										);
+										props.changeHead(
+											localStorage.getItem("head")
 										);
 									} else if (props.category == "body") {
-										props.changeBody(
+										localStorage.setItem(
+											"body",
 											require(`../../images/${props.image}.png`)
+										);
+										props.changeBody(
+											localStorage.getItem("body")
 										);
 									} else if (props.category == "legs") {
-										props.changeLegs(
+										localStorage.setItem(
+											"legs",
 											require(`../../images/${props.image}.png`)
+										);
+										props.changeLegs(
+											localStorage.getItem("legs")
 										);
 									} else if (props.category == "feet") {
-										props.changeFeet(
+										localStorage.setItem(
+											"feet",
 											require(`../../images/${props.image}.png`)
 										);
+										props.changeFeet(
+											localStorage.getItem("feet")
+										);
 									} else if (props.category == "weapon") {
-										props.changeWeapon(
+										localStorage.setItem(
+											"weapon",
 											require(`../../images/${props.image}.png`)
+										);
+										props.changeWeapon(
+											localStorage.getItem("weapon")
 										);
 									}
 									setStatus(2);

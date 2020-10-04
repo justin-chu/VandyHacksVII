@@ -5,16 +5,37 @@ import Avatar from "../../images/avatar.png";
 import Item from "../../components/item/item";
 import { getCustomerInfo, updateBalance } from "../../utils/backend";
 import Zoom from "react-reveal/Zoom";
-import { useMediaQuery } from "react-responsive"
+import { useMediaQuery } from "react-responsive";
 import TaskList from "../../components/taskList/taskList";
 
 export default function Dashboard() {
 	const [category, setCategory] = useState("head");
-	const [head, setHead] = useState(require("../../images/head/3.png"));
-	const [body, setBody] = useState(require(`../../images/body/2.png`));
-	const [legs, setLegs] = useState(require(`../../images/legs/0.png`));
-	const [feet, setFeet] = useState(require(`../../images/feet/9.png`));
-	const [weapon, setWeapon] = useState(require(`../../images/weapon/2.png`));
+
+	const [head, setHead] = useState(
+		localStorage.getItem("head")
+			? localStorage.getItem("head")
+			: require("../../images/head/3.png")
+	);
+	const [body, setBody] = useState(
+		localStorage.getItem("body")
+			? localStorage.getItem("body")
+			: require("../../images/body/3.png")
+	);
+	const [legs, setLegs] = useState(
+		localStorage.getItem("legs")
+			? localStorage.getItem("legs")
+			: require("../../images/legs/3.png")
+	);
+	const [feet, setFeet] = useState(
+		localStorage.getItem("feet")
+			? localStorage.getItem("feet")
+			: require("../../images/feet/3.png")
+	);
+	const [weapon, setWeapon] = useState(
+		localStorage.getItem("weapon")
+			? localStorage.getItem("weapon")
+			: require("../../images/weapon/3.png")
+	);
 
 	const customer = getCustomerInfo();
 
@@ -195,5 +216,4 @@ export default function Dashboard() {
 			</div>
 		</div>
 	);
-
 }
