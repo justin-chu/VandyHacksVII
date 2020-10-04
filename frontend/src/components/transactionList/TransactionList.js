@@ -1,61 +1,69 @@
 import React, { useEffect, useState } from "react";
 import Zoom from "react-reveal/Zoom";
-import Task from "../task/task";
-import { getTransactions, updateBalance } from "../../utils/backend";
-import { Popup } from "reactjs-popup";
+// import { getTransactions, updateBalance } from "../../utils/backend";
 import Transaction from "../transaction/transaction";
 
 const TransactionList = () => {
-	const [open, setOpen] = useState(false);
-	const closeModal = () => setOpen(false);
-	const [transactions, setTransactions] = useState([]);
-	let stuff;
-	function completeTask() {
-		closeModal();
-		updateBalance(localStorage.getItem("username"), 50);
-	}
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+  // const [transactions, setTransactions] = useState([]);
+  const transactions = [
+    {
+      date: "2020-09-18",
+      amount: 19.8,
+      description: "Bought medicine for allergies",
+    },
+    { date: "2020-09-20", amount: 350.22, description: "New headphones" },
+    {
+      date: "2020-09-24",
+      amount: 110.54,
+      description: "Night out with friends",
+    },
+    {
+      date: "2020-09-26",
+      amount: 20.33,
+      description: "Bought snacks from convenience store",
+    },
+    { date: "2020-09-27", amount: 40.83, description: "Bought pair of jeans" },
+    { date: "2020-09-27", amount: 112.39, description: "Weekly Groceries" },
+    {
+      date: "2020-09-30",
+      amount: 300.25,
+      description: "Bought plants for the house",
+    },
+    { date: "2020-10-01", amount: 96.1, description: "new shoes" },
+    { date: "2020-10-03", amount: 180.55, description: "Bought winter tires" },
+  ];
 
-	useEffect(() => {
-		async function fetchData() {
-			const transactionData = await getTransactions();
+  // useEffect(async () => {
+  //   var transactionData;
+  //   function fetchData() {
+  //     return new Promise(function (resolve) {
+  //       getTransactions().then((res) => {
+  //         transactionData = res;
+  //         // console.log(res);
+  //         // setTransactions([res]);
+  //         resolve();
+  //       });
+  //       // setTransactions(transactionData);
+  //     });
+  //   }
+  //   await fetchData();
+  //   setTransactions(transactionData);
+  //   console.log(transactions);
+  // }, []);
 
-			setTransactions((transactions) => [
-				...transactions,
-				transactionData,
-			]);
-			console.log(transactions);
-		}
-
-		fetchData();
-	}, [transactions]);
-	console.log(transactions);
-
-	return (
-		<div>
-			<div>
-				{/* #FFBA08 #34A853 #EC64DE #1877F2 #706BFF */}
-				{/* {transactions.map((transaction) => (
-					<h2>transaction.id</h2>
-				))} */}
-			</div>
-			<Popup open={open} closeOnDocumentClick onClose={closeModal}>
-				<div className="modal">
-					<p>Are you sure you have completed this task?</p>
-					<div className="buttons">
-						<a className="red-button" onClick={closeModal}>
-							<h4 style={{ margin: 0, color: "white" }}>No</h4>
-						</a>
-						<a className="green-button" onClick={completeTask}>
-							<h4 style={{ margin: 0, color: "white" }}>Yes</h4>
-						</a>
-					</div>
-				</div>
-			</Popup>
-		</div>
-		// <div>
-		// 	<h1>Tasklist works!</h1>
-		// </div>
-	);
+  return (
+    <Zoom>
+      {transactions.map((transaction) => (
+        <Transaction
+          date={transaction.date}
+          description={transaction.description}
+          amount={transaction.amount}
+        ></Transaction>
+      ))}
+    </Zoom>
+  );
 };
 
 export default TransactionList;
