@@ -16,29 +16,31 @@ export default function App() {
 				<nav>
 					<ul>
 						<li>
-              <Link
-                to="/"
-                style={{
-                  fontWeight: "bold",
-                  color: "black",
-                  marginLeft: 20,
-                  marginRight: 20,
-                  padding: 0,
-                }}
-              >
-                <img
-                  style={{ marginBottom: -30 }}
-                  src={Logo}
-                  height={42}
-                  width={180}
-                />
-              </Link>
+							<Link
+								to="/"
+								style={{
+									fontWeight: "bold",
+									color: "black",
+									marginLeft: 20,
+									marginRight: 20,
+									padding: 0,
+								}}
+							>
+								<img
+									style={{ marginBottom: -30 }}
+									src={Logo}
+									height={42}
+									width={180}
+								/>
+							</Link>
+						</li>
 						<li>
 							<Link to="/dashboard">Dashboard</Link>
 						</li>
 						<li>
 							<Link to="/account">Account</Link>
 						</li>
+
 						{isLoggedIn() ? (
 							<li>
 								<Link to="/auth">Log in</Link>
@@ -56,7 +58,7 @@ export default function App() {
 						<Dashboard />
 					</Route>
 					<Route path="/account">
-						{isLoggedIn() ? <Auth /> : <Account />}
+						{isLoggedIn() ? <Account /> : <Auth />}
 					</Route>
 					<Route path="/auth">
 						<Auth />
