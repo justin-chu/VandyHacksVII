@@ -3,14 +3,14 @@ import "./dashboard.css";
 import Coin from "../../images/coin.gif";
 import Avatar from "../../images/avatar.png";
 import Item from "../../components/item/item";
-import { getCustomerInfo } from "../../utils/backend";
+import { getCustomerInfo, updateBalance } from "../../utils/backend";
 import TaskList from "../../components/taskList/taskList";
 
 export default function Dashboard() {
 	const [category, setCategory] = useState("head");
 	const [head, setHead] = useState(require("../../images/head/3.png"));
 	const [body, setBody] = useState(require(`../../images/body/2.png`));
-	const [legs, setlegs] = useState(require(`../../images/legs/0.png`));
+	const [legs, setLegs] = useState(require(`../../images/legs/0.png`));
 	const [feet, setFeet] = useState(require(`../../images/feet/9.png`));
 	const [weapon, setWeapon] = useState(require(`../../images/weapon/2.png`));
 
@@ -23,7 +23,19 @@ export default function Dashboard() {
 		let content = [];
 
 		for (let i = 0; i < 15; i++) {
-			content.push(<Item status={2} image={`${category}/${i}`} />);
+			content.push(
+				<Item
+					status={1}
+					image={`${category}/${i}`}
+					category={category}
+					changeBalance={updateBalance}
+					changeHead={setHead}
+					changeBody={setBody}
+					changeLegs={setLegs}
+					changeFeet={setFeet}
+					changeWeapon={setWeapon}
+				/>
+			);
 		}
 
 		return content;
