@@ -48,16 +48,16 @@ export default function App() {
 						<Dashboard />
 					</Route>
 					<Route path="/account">
-						<Account />
+						{isLoggedIn() ? <Auth /> : <Account />}
 					</Route>
 					<Route path="/auth">
 						<Auth />
 					</Route>
-					<Route path="/">
-						<Dashboard />
-					</Route>
 					<Route path="/logout">
 						<Auth />
+					</Route>
+					<Route path="/">
+						{isLoggedIn() ? <Auth /> : <Dashboard />}
 					</Route>
 				</Switch>
 			</div>

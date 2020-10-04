@@ -30,7 +30,7 @@ export default function Dashboard() {
 						style={{
 							display: "flex",
 							flexDirection: "row",
-							justifyContent: "center",
+							justifyContent: "flex-end",
 						}}
 					>
 						<h1>{customer.firstName}</h1>

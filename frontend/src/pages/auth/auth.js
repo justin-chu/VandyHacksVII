@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./auth.css";
 import { Link, useHistory } from "react-router-dom";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { postLogin } from "../../utils/backend";
 
@@ -10,6 +8,10 @@ export default function Finances() {
 	const [userName, setUserName] = useState("");
 	const [password, setPassword] = useState("");
 	const history = useHistory();
+
+	useEffect(() => {
+		localStorage.clear();
+	});
 
 	return (
 		<div style={{ display: "flex", justifyContent: "center" }}>
@@ -44,9 +46,11 @@ export default function Finances() {
 						block
 						onClick={async () => {
 							const user = await postLogin(userName, password);
+
 							if (user) {
-								history.push("/");
+								history.push("/dashboard");
 							} else {
+								alert("wrong credentials");
 							}
 						}}
 					>

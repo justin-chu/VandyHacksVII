@@ -20,8 +20,9 @@ export const postLogin = async (userName, password) => {
 				localStorage.setItem("lastName", data.data.lastName);
 				localStorage.setItem("balance", data.data.balance);
 				localStorage.setItem("items", data.data.items);
+				localStorage.setItem("username", data.data.username);
 			}
-			return null;
+			return true;
 		})
 		.catch((e) => {
 			return null;
@@ -36,6 +37,7 @@ export function getCustomerInfo() {
 		let lastName = localStorage.getItem("lastName");
 		let balance = localStorage.getItem("balance");
 		let items = localStorage.getItem("items");
+		let username = localStorage.getItem("username");
 		const customer = {
 			id: id,
 			email: email,
@@ -43,11 +45,12 @@ export function getCustomerInfo() {
 			lastName: lastName,
 			balance: balance,
 			items: items,
+			username: username,
 		};
 		return customer;
 	} else return null;
 }
 
 export function isLoggedIn() {
-	return getCustomerInfo().id === null;
+	return getCustomerInfo() == null;
 }

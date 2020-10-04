@@ -30,8 +30,14 @@ export default function Finances() {
 							</p>
 						</a>
 					</div>
-					<div className="account1"></div>
-					<div className="account2"></div>
+					<div className="account1">
+						<p>Total balance: {user.balance}</p>
+						<p>Email: {user.email}</p>
+						<p>FirstName: {user.firstName}</p>
+						<p>LastName: {user.lastName}</p>
+						<p>UserName: {user.username}</p>
+					</div>
+					<div className="account2">Items: {user.items}</div>
 				</div>
 				<div className="right">
 					<h1 style={{ marginBottom: 10, fontWeight: 100 }}>Goals</h1>
