@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Zoom from "react-reveal/Zoom";
 import Task from "../../components/task/task";
 import { getTasks, updateBalance } from "../../utils/backend";
 import { Popup } from "reactjs-popup";
@@ -8,11 +7,9 @@ const TaskList = () => {
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
   const [tasks, setTasks] = useState([]);
-  let taskList;
 
   function completeTask() {
     closeModal();
-    console.log(localStorage.getItem("username"));
     updateBalance(localStorage.getItem("username"), 50);
   }
 
@@ -21,22 +18,33 @@ const TaskList = () => {
   useEffect(() => {
     async function fetchData() {
       const taskData = await getTasks();
-      console.log(taskData);
       setTasks(taskData);
     }
     fetchData();
   }, []);
 
+  let i = 0;
+  const colors = ["#FFBA08", "#34A853", "#EC64DE", "#1877F2", "#706BFF"];
+
   return (
     <div>
-      {/* <Zoom> */}
-      {/* #FFBA08 #34A853 #EC64DE #1877F2 #706BFF */}
-      {tasks.map((task) => (
-        <a onClick={() => setOpen((o) => !o)}>
-          <Task task={task} backgroundColor="#706BFF" />
-        </a>
-      ))}
-      {/* </Zoom> */}
+      {tasks.map((task) => {
+        i++;
+        if (i === 5) {
+          i = 0;
+        }
+        if (task.charAt(task.length - 1) === '"') {
+          task = task.substring(0, task.length - 1);
+        }
+        if (task === "Pay this month's personal loan!") {
+          task = task.concat("!");
+        }
+        return (
+          <a onClick={() => setOpen((o) => !o)}>
+            <Task task={task} backgroundColor={colors[i]} />
+          </a>
+        );
+      })}
       <Popup open={open} closeOnDocumentClick onClose={closeModal}>
         <div className="modal">
           <p>Are you sure you have completed this task?</p>
@@ -51,9 +59,6 @@ const TaskList = () => {
         </div>
       </Popup>
     </div>
-    // <div>
-    // 	<h1>Tasklist works!</h1>
-    // </div>
   );
 };
 

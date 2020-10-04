@@ -3,6 +3,7 @@ import "./dashboard.css";
 import Coin from "../../images/coin.gif";
 import Avatar from "../../images/avatar.png";
 import Item from "../../components/item/item";
+import Zoom from "react-reveal/Zoom";
 import { getCustomerInfo } from "../../utils/backend";
 import TaskList from "../../components/taskList/taskList";
 
@@ -57,36 +58,38 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="panel1">
-            <img
-              src={require(`../../images/head/3.png`)}
-              height={70}
-              width={70}
-              style={{ margin: 10 }}
-            />
-            <img
-              src={require(`../../images/body/2.png`)}
-              height={70}
-              width={70}
-              style={{ margin: 10 }}
-            />
-            <img
-              src={require(`../../images/legs/0.png`)}
-              height={70}
-              width={70}
-              style={{ margin: 10 }}
-            />
-            <img
-              src={require(`../../images/feet/9.png`)}
-              height={70}
-              width={70}
-              style={{ margin: 10 }}
-            />
-            <img
-              src={require(`../../images/weapon/2.png`)}
-              height={70}
-              width={70}
-              style={{ margin: 10 }}
-            />
+            <Zoom>
+              <img
+                src={require(`../../images/head/3.png`)}
+                height={70}
+                width={70}
+                style={{ margin: 10 }}
+              />
+              <img
+                src={require(`../../images/body/2.png`)}
+                height={70}
+                width={70}
+                style={{ margin: 10 }}
+              />
+              <img
+                src={require(`../../images/legs/0.png`)}
+                height={70}
+                width={70}
+                style={{ margin: 10 }}
+              />
+              <img
+                src={require(`../../images/feet/9.png`)}
+                height={70}
+                width={70}
+                style={{ margin: 10 }}
+              />
+              <img
+                src={require(`../../images/weapon/2.png`)}
+                height={70}
+                width={70}
+                style={{ margin: 10 }}
+              />
+            </Zoom>
           </div>
           <div className="panel2">
             <div className="categories">

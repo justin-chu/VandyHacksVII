@@ -11,7 +11,14 @@ export default function Task(props) {
         }}
         className="task"
       >
-        <h4 style={{ marginTop: 12, marginLeft: 15, fontSize: 15 }}>
+        <h4
+          style={{
+            marginTop: 12,
+            marginBottom: 12,
+            marginLeft: 15,
+            fontSize: 15,
+          }}
+        >
           {props.task}
         </h4>
       </a>
