@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./pages/dashboard/dashboard";
-import Finances from "./pages/finances/finances";
+import Account from "./pages/account/account";
+import Auth from "./pages/auth/auth";
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
               <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/finances">Finances</Link>
+              <Link to="/account">Account</Link>
             </li>
           </ul>
         </nav>
@@ -31,8 +32,11 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/finances">
-            <Finances />
+          <Route path="/account">
+            <Account />
+          </Route>
+          <Route path="/auth">
+            <Auth />
           </Route>
           <Route path="/">
             <Dashboard />

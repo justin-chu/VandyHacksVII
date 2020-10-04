@@ -7,6 +7,10 @@
   cursor: pointer;
 }
 
+.item :hover {
+  opacity: 0.8;
+}
+
 .owned {
   border-radius: 0 0 5px 5px;
   background-color: rgba(0, 193, 54, 0.6);

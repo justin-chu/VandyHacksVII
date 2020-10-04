@@ -72,6 +72,11 @@
   display: none;
 }
 
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @keyframes anvil {
   0% {
     transform: scale(1) translateY(0px);

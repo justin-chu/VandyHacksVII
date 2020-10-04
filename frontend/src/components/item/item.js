@@ -41,7 +41,7 @@ export default function Item(props) {
             <p>
               Purchase this item for 232
               <img
-                style={{ marginLeft: 2 }}
+                style={{ marginLeft: 2, marginTop: 5 }}
                 src={Coin}
                 height={18}
                 width={18}
