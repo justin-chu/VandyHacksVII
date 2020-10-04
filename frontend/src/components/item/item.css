@@ -2,9 +2,11 @@
   height: 90px;
   width: 90px;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   background-color: rgba(0, 0, 0, 0.07);
   cursor: pointer;
+  display: flex;
+  position: relative;
 }
 
 .item :hover {
@@ -17,6 +19,8 @@
   width: 90px;
   height: 24px;
   margin-top: 66px;
+  position: absolute;
+  bottom: 0;
 }
 
 .not-owned {
@@ -25,6 +29,15 @@
   width: 90px;
   height: 24px;
   margin-top: 66px;
+  position: absolute;
+  bottom: 0;
+}
+
+.owned-text {
+  color: white;
+  padding-top: 3px;
+  position: absolute;
+  margin: 0;
 }
 
 @keyframes anvil {

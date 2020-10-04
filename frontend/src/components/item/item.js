@@ -19,24 +19,33 @@ export default function Item(props) {
   return (
     <>
       <a onClick={() => setOpen((o) => !o)} className="item">
+        <img
+          src={require(`../../images/${props.image}.png`)}
+          height={70}
+          width={70}
+          style={{ margin: 10 }}
+        />
         {props.owned ? (
           <div className="owned">
-            <h5 style={{ color: "white", textAlign: "center", paddingTop: 3 }}>
-              OWNED
-            </h5>
+            <h5 className="owned-text">OWNED</h5>
           </div>
         ) : (
           <div className="not-owned">
-            <h5 style={{ color: "white", textAlign: "center", paddingTop: 3 }}>
-              $232
-            </h5>
+            <h5 className="owned-text">$232</h5>
           </div>
         )}
       </a>
       <Confetti numberOfPieces={confetti} />
       <Popup open={open} closeOnDocumentClick onClose={closeModal}>
         <div className="modal">
-          <div className="item"></div>
+          <div className="item">
+            <img
+              src={require(`../../images/${props.image}.png`)}
+              height={70}
+              width={70}
+              style={{ margin: 10 }}
+            />
+          </div>
           <div style={{ marginTop: -10 }}>
             <p>
               Purchase this item for 232
