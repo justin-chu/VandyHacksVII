@@ -11,9 +11,7 @@ export default function Dashboard() {
   const [open, setOpen] = React.useState(false);
   const closeModal = () => setOpen(false);
 
-  // const renderItem = () => {
-
-  // }
+  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
   // const renderTask = () => {
   //   return (
@@ -104,19 +102,18 @@ export default function Dashboard() {
               </a>
             </div>
             <div className="items">
-              <Item owned={true} />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
+              {/* {{for(let i=0; i<15; i++) {
+        return <Item owned={true} image={`weapon/${n}`} />
+      })}} */}
+
+              <Item owned={true} image={`weapon/1`} />
+              <Item owned={false} image={`weapon/2`} />
+              <Item owned={false} image={`weapon/3`} />
+              <Item owned={true} image={`weapon/4`} />
+              <Item owned={false} image={`weapon/5`} />
+              <Item owned={true} image={`weapon/6`} />
+              <Item owned={true} image={`weapon/7`} />
+              <Item owned={true} image={`weapon/8`} />
             </div>
           </div>
         </div>
