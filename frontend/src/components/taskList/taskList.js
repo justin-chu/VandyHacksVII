@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Zoom from "react-reveal/Zoom";
 import Task from "../../components/task/task";
-import { getTasks } from "../../utils/backend";
+import { getTasks, updateBalance } from "../../utils/backend";
 import { Popup } from "reactjs-popup";
 
 const TaskList = () => {
@@ -9,10 +9,17 @@ const TaskList = () => {
 	const closeModal = () => setOpen(false);
 	const [tasks, setTasks] = useState([]);
 	let taskList;
+
+	function completeTask() {
+		closeModal();
+		console.log(localStorage.getItem("username"));
+		updateBalance(localStorage.getItem("username"), 50);
+	}
+
 	useEffect(() => {
 		async function fetchData() {
 			const taskData = await getTasks();
-			setTasks(tasks.push(...taskData));
+			setTasks(tasks.push(taskData));
 			console.log(tasks);
 		}
 		fetchData();
@@ -87,7 +94,7 @@ const TaskList = () => {
 						<a className="red-button" onClick={closeModal}>
 							<h4 style={{ margin: 0, color: "white" }}>No</h4>
 						</a>
-						<a className="green-button" onClick={closeModal}>
+						<a className="green-button" onClick={completeTask}>
 							<h4 style={{ margin: 0, color: "white" }}>Yes</h4>
 						</a>
 					</div>
