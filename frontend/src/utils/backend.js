@@ -2,6 +2,8 @@ import axios from "axios";
 
 export const baseUrl = `https://cors-anywhere.herokuapp.com/http://fintavandy.herokuapp.com/`;
 export const urlLogin = `${baseUrl}customer/`;
+export const taskUrl =
+	"https://cors-anywhere.herokuapp.com/https://17s5u775q5.execute-api.us-east-2.amazonaws.com/default/vandyHacks";
 
 export const postLogin = async (userName, password) => {
 	const config = {
@@ -49,6 +51,23 @@ export function getCustomerInfo() {
 		};
 		return customer;
 	} else return null;
+}
+
+export function getTasks() {
+	const config = {
+		method: "get",
+		url: `${taskUrl}`,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	};
+	return axios(config)
+		.then((data) => {
+			return data.data;
+		})
+		.catch((e) => {
+			return null;
+		});
 }
 
 export function isLoggedIn() {
