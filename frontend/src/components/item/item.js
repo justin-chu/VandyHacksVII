@@ -25,13 +25,19 @@ export default function Item(props) {
           width={70}
           style={{ margin: 10 }}
         />
-        {props.owned ? (
+        {props.status === 0 && (
           <div className="owned">
             <h5 className="owned-text">OWNED</h5>
           </div>
-        ) : (
+        )}
+        {props.status === 1 && (
           <div className="not-owned">
             <h5 className="owned-text">$232</h5>
+          </div>
+        )}
+        {props.status === 2 && (
+          <div className="equipped">
+            <h5 className="owned-text">EQUIPPED</h5>
           </div>
         )}
       </a>
@@ -47,9 +53,20 @@ export default function Item(props) {
             />
           </div>
           <div style={{ marginTop: -10 }}>
-            {props.owned ? (
-              <p>Equip this item?</p>
-            ) : (
+            {props.status === 0 && <p>Equip this item?</p>}
+            {props.status === 1 && (
+              <p>
+                Purchase this item for 232
+                <img
+                  style={{ marginLeft: 2, marginTop: 5 }}
+                  src={Coin}
+                  height={18}
+                  width={18}
+                />
+                {"  "}?
+              </p>
+            )}
+            {props.status === 2 && (
               <p>
                 Purchase this item for 232
                 <img

@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./pages/dashboard/dashboard";
 import Account from "./pages/account/account";
-import Auth from "./pages/auth/auth";
+import Login from "./pages/login/login";
+import Signup from "./pages/signup/signup";
 import { ProtectedRoute } from "./utils/protected.route";
 import Nav from "./components/nav/nav";
 
@@ -17,11 +18,14 @@ export default function App() {
           <ProtectedRoute path="/dashboard" component={Dashboard} />
           <ProtectedRoute exact path="/account" component={Account} />
 
-          <Route path="/auth">
-            <Auth />
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/logout">
-            <Auth />
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
           </Route>
 
           <ProtectedRoute exact path="/" component={Dashboard} />

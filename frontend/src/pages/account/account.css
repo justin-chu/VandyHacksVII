@@ -21,21 +21,55 @@
 }
 
 .account1 {
-  height: 300px;
-  width: 560px;
+  height: 120px;
+  width: 510px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0px 10px rgba(9, 11, 13, 0.04);
   overflow: hidden;
   margin-bottom: 20px;
+  padding: 25px;
+}
+
+.subtitle {
+  margin: 0px;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .account2 {
-  height: 100px;
+  height: 220px;
   width: 560px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0px 10px rgba(9, 11, 13, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field {
+  width: 460px;
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  overflow: hidden;
+  font-size: 14px;
+  font-family: sans-serif;
+  padding-left: 10px;
+  padding: 6px;
+  margin-bottom: 5px;
+}
+
+.field:focus {
+  outline: none;
+  border: 1px solid #01ca71;
+}
+
+.field:hover {
+  outline: none;
+  border: 1px solid #01ca71;
+  transition: border 0.2s linear;
 }
 
 .account3 {

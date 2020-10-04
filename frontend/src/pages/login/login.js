@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./auth.css";
+import "./login.css";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Bounce from "react-reveal";
 import { postLogin } from "../../utils/backend";
 
-export default function Finances() {
+export default function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();

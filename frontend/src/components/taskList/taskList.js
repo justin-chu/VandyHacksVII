@@ -5,108 +5,56 @@ import { getTasks, updateBalance } from "../../utils/backend";
 import { Popup } from "reactjs-popup";
 
 const TaskList = () => {
-	const [open, setOpen] = useState(false);
-	const closeModal = () => setOpen(false);
-	const [tasks, setTasks] = useState([]);
-	let taskList;
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+  const [tasks, setTasks] = useState([]);
+  let taskList;
 
-	function completeTask() {
-		closeModal();
-		console.log(localStorage.getItem("username"));
-		updateBalance(localStorage.getItem("username"), 50);
-	}
+  function completeTask() {
+    closeModal();
+    console.log(localStorage.getItem("username"));
+    updateBalance(localStorage.getItem("username"), 50);
+  }
 
-	function getArrayfromString(String) {}
+  function getArrayfromString(String) {}
 
-	useEffect(() => {
-		async function fetchData() {
-			const taskData = await getTasks();
-			console.log(taskData);
-			setTasks(taskData);
-		}
-		fetchData();
-	}, []);
+  useEffect(() => {
+    async function fetchData() {
+      const taskData = await getTasks();
+      console.log(taskData);
+      setTasks(taskData);
+    }
+    fetchData();
+  }, []);
 
-	return (
-		<div>
-			{tasks.map((task) => (
-				<a onClick={() => setOpen((o) => !o)}>
-					<Task task={task} backgroundColor="#706BFF" />
-				</a>
-			))}
-			{/* 
-				<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Use credit card for ___ more purchases instead of checking"
-					backgroundColor="#FFBA08"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Spend ___ less on category (want)"
-					backgroundColor="#34A853"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Put ___ dollars in your investment account"
-					backgroundColor="#EC64DE"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Contribute ___ amount to RRSP"
-					backgroundColor="#1877F2"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Pay your ___ bill for this month"
-					backgroundColor="#706BFF"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Pay your ___ loan for this month"
-					backgroundColor="#FFBA08"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Keep __ dollars more in your savings account"
-					backgroundColor="#34A853"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Keep __ dollars more in your savings account"
-					backgroundColor="#EC64DE"
-				/>
-			</a>
-			<a onClick={() => setOpen((o) => !o)}>
-				<Task
-					task="Keep __ dollars more in your savings account"
-					backgroundColor="#1877F2"
-				/>
-			</a> */}
-			<Popup open={open} closeOnDocumentClick onClose={closeModal}>
-				<div className="modal">
-					<p>Are you sure you have completed this task?</p>
-					<div className="buttons">
-						<a className="red-button" onClick={closeModal}>
-							<h4 style={{ margin: 0, color: "white" }}>No</h4>
-						</a>
-						<a className="green-button" onClick={completeTask}>
-							<h4 style={{ margin: 0, color: "white" }}>Yes</h4>
-						</a>
-					</div>
-				</div>
-			</Popup>
-		</div>
-		// <div>
-		// 	<h1>Tasklist works!</h1>
-		// </div>
-	);
+  return (
+    <div>
+      {/* <Zoom> */}
+      {/* #FFBA08 #34A853 #EC64DE #1877F2 #706BFF */}
+      {tasks.map((task) => (
+        <a onClick={() => setOpen((o) => !o)}>
+          <Task task={task} backgroundColor="#706BFF" />
+        </a>
+      ))}
+      {/* </Zoom> */}
+      <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+        <div className="modal">
+          <p>Are you sure you have completed this task?</p>
+          <div className="buttons">
+            <a className="red-button" onClick={closeModal}>
+              <h4 style={{ margin: 0, color: "white" }}>No</h4>
+            </a>
+            <a className="green-button" onClick={completeTask}>
+              <h4 style={{ margin: 0, color: "white" }}>Yes</h4>
+            </a>
+          </div>
+        </div>
+      </Popup>
+    </div>
+    // <div>
+    // 	<h1>Tasklist works!</h1>
+    // </div>
+  );
 };
 
 export default TaskList;
