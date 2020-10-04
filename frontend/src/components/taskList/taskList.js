@@ -46,8 +46,10 @@ const TaskList = () => {
         );
       })}
       <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-        <div className="modal">
-          <p>Are you sure you have completed this task?</p>
+        <div className="modal-1">
+          <p style={{ margin: 0, marginBottom: 15, marginTop: 5 }}>
+            Are you sure you have completed this task?
+          </p>
           <div className="buttons">
             <a className="red-button" onClick={closeModal}>
               <h4 style={{ margin: 0, color: "white" }}>No</h4>

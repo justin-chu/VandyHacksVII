@@ -57,7 +57,7 @@ export default function Finances() {
             <h1
               style={{
                 position: "absolute",
-                left: -558,
+                left: -556,
                 width: 400,
               }}
             >
@@ -133,11 +133,11 @@ export default function Finances() {
               onChange={(e) => setDesc(e.target.value)}
               placeholder="Description"
               className="field"
-              style={{ height: 50 }}
+              style={{ height: 60 }}
             ></textarea>
             <a
               className="green-button"
-              style={{ marginTop: 5 }}
+              style={{ marginTop: 10 }}
               onClick={() => (deposit ? postDeposit() : postWithdrawal())}
             >
               <h4 style={{ margin: 0, color: "white" }}>Enter</h4>

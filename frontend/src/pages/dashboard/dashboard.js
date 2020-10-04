@@ -4,6 +4,7 @@ import Coin from "../../images/coin.gif";
 import Avatar from "../../images/avatar.png";
 import Item from "../../components/item/item";
 import Zoom from "react-reveal/Zoom";
+import { useMediaQuery } from "react-responsive";
 import { getCustomerInfo } from "../../utils/backend";
 import TaskList from "../../components/taskList/taskList";
 
@@ -25,25 +26,32 @@ export default function Dashboard() {
     return content;
   };
 
+  const isDesktop = useMediaQuery({ minWidth: 1201 });
+  const isTablet = useMediaQuery({ maxWidth: 1200 });
+
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <div className="content">
-        <div className="left">
+      <div
+        className="content"
+        style={{
+          flexDirection: isTablet ? "column" : "row",
+          alignItems: isTablet ? "center" : "",
+        }}
+      >
+        <div
+          className="left"
+          style={{ alignItems: isTablet ? "center" : "flex-end" }}
+        >
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
+              width: 556,
               position: "relative",
-              marginBottom: 14,
+              marginBottom: -12,
             }}
           >
-            <h1
-              style={{
-                position: "absolute",
-                left: -496,
-                width: 400,
-              }}
-            >
+            <h1>
               {customer.firstName} {customer.lastName}
               <img
                 style={{ marginLeft: 10, marginBottom: -5 }}
@@ -163,7 +171,10 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="right">
+        <div
+          className="right"
+          style={{ alignItems: isTablet ? "center" : "flex-start" }}
+        >
           <h1 style={{ marginBottom: 10, fontWeight: 100 }}>Tasks</h1>
           <div className="panel3">
             <TaskList />
