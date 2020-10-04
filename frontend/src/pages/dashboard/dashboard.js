@@ -6,13 +6,20 @@ import { getCustomerInfo } from "../../utils/backend";
 import TaskList from "../../components/taskList/taskList";
 
 export default function Dashboard() {
-	const [category, setCategory] = useState(0);
+	const [category, setCategory] = useState("head");
 
 	const customer = getCustomerInfo();
 
 	// const renderItem = () => {
+	const getItems = (category) => {
+		let content = [];
 
-	const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+		for (let i = 0; i < 15; i++) {
+			content.push(<Item owned={true} image={`${category}/${i}`} />);
+		}
+
+		return content;
+	};
 
 	return (
 		<div style={{ display: "flex", justifyContent: "center" }}>
@@ -22,9 +29,17 @@ export default function Dashboard() {
 						style={{
 							display: "flex",
 							justifyContent: "space-between",
+							position: "relative",
+							marginBottom: 14,
 						}}
 					>
-						<h1 style={{ marginBottom: 10, marginRight: 255 }}>
+						<h1
+							style={{
+								position: "absolute",
+								left: -500,
+								width: 400,
+							}}
+						>
 							{customer.firstName} {customer.lastName}
 						</h1>
 						<div style={{ display: "flex", marginTop: 38 }}>
@@ -36,90 +51,77 @@ export default function Dashboard() {
 					<div className="panel2">
 						<div className="categories">
 							<a
-								onClick={() => setCategory(0)}
+								onClick={() => setCategory("head")}
 								style={{ cursor: "pointer", marginRight: 25 }}
 							>
 								<p
 									style={{
 										marginTop: 0,
 										fontWeight:
-											category === 0 ? "bold" : "",
+											category === "head" ? "bold" : "",
 									}}
 								>
 									Head
 								</p>
 							</a>
 							<a
-								onClick={() => setCategory(1)}
+								onClick={() => setCategory("body")}
 								style={{ cursor: "pointer", marginRight: 25 }}
 							>
 								<p
 									style={{
 										marginTop: 0,
 										fontWeight:
-											category === 1 ? "bold" : "",
+											category === "body" ? "bold" : "",
 									}}
 								>
 									Body
 								</p>
 							</a>
 							<a
-								onClick={() => setCategory(2)}
+								onClick={() => setCategory("legs")}
 								style={{ cursor: "pointer", marginRight: 25 }}
 							>
 								<p
 									style={{
 										marginTop: 0,
 										fontWeight:
-											category === 2 ? "bold" : "",
+											category === "legs" ? "bold" : "",
 									}}
 								>
 									Legs
 								</p>
 							</a>
 							<a
-								onClick={() => setCategory(3)}
+								onClick={() => setCategory("feet")}
 								style={{ cursor: "pointer", marginRight: 25 }}
 							>
 								<p
 									style={{
 										marginTop: 0,
 										fontWeight:
-											category === 3 ? "bold" : "",
+											category === "feet" ? "bold" : "",
 									}}
 								>
 									Feet
 								</p>
 							</a>
 							<a
-								onClick={() => setCategory(4)}
+								onClick={() => setCategory("weapon")}
 								style={{ cursor: "pointer", marginRight: 25 }}
 							>
 								<p
 									style={{
 										marginTop: 0,
 										fontWeight:
-											category === 4 ? "bold" : "",
+											category === "weapon" ? "bold" : "",
 									}}
 								>
 									Weapon
 								</p>
 							</a>
 						</div>
-						<div className="items">
-							{/* {{for(let i=0; i<15; i++) {
-        return <Item owned={true} image={`weapon/${n}`} />
-      })}} */}
-
-							<Item owned={true} image={`weapon/1`} />
-							<Item owned={false} image={`weapon/2`} />
-							<Item owned={false} image={`weapon/3`} />
-							<Item owned={true} image={`weapon/4`} />
-							<Item owned={false} image={`weapon/5`} />
-							<Item owned={true} image={`weapon/6`} />
-							<Item owned={true} image={`weapon/7`} />
-							<Item owned={true} image={`weapon/8`} />
-						</div>
+						<div className="items">{getItems(category)}</div>
 					</div>
 				</div>
 
